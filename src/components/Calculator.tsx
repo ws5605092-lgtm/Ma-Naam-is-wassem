@@ -173,18 +173,18 @@ export default function Calculator({ onUnlock, masterPinHash, decoyPinHash, onFo
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#09090b] text-zinc-100 p-4 font-sans select-none">
-      <div className="relative w-full max-w-[360px] bg-[#18181b] border border-white/5 rounded-[2rem] p-8 shadow-2xl flex flex-col overflow-hidden">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-slate-100 p-4 font-sans select-none">
+      <div className="relative w-full max-w-[360px] bg-neutral-900 border border-neutral-800 rounded-3xl p-6 shadow-2xl flex flex-col gap-5 overflow-hidden">
         {/* Stealth Security / Debug Header */}
-        <div className="flex justify-between items-center text-[10px] font-mono font-medium tracking-widest text-zinc-600 mb-6">
+        <div className="flex justify-between items-center text-[10px] font-mono font-medium tracking-widest text-neutral-600 px-1">
           <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-neutral-700 animate-pulse" />
             <span>DEG</span>
           </div>
           {/* Stealthy forgot password trigger */}
           <button 
             onClick={onForgotPassword}
-            className="hover:text-zinc-400 cursor-pointer transition-colors"
+            className="hover:text-neutral-400 cursor-pointer transition-colors p-1"
             title="System Info"
           >
             SYS-9.2
@@ -192,21 +192,18 @@ export default function Calculator({ onUnlock, masterPinHash, decoyPinHash, onFo
         </div>
 
         {/* Display Panel */}
-        <div className="h-32 flex flex-col items-end justify-end mb-8 relative">
-          <span className="text-zinc-500 text-[10px] uppercase tracking-widest mb-1">Stealth Active</span>
-          {equation && (
-            <div className="text-zinc-500 text-[11px] font-mono absolute top-0 right-0 max-w-[90%] truncate">
-              {equation}
-            </div>
-          )}
-          <div className="text-5xl font-light tracking-tight text-zinc-100 select-all truncate w-full text-right font-sans">
+        <div className="flex flex-col justify-end items-end h-28 px-2 bg-neutral-950/40 rounded-2xl border border-neutral-800/20 p-4 text-right overflow-hidden relative">
+          <div className="text-xs text-neutral-500 font-mono h-5 overflow-hidden truncate w-full">
+            {equation}
+          </div>
+          <div className="text-4xl md:text-5xl font-light text-white tracking-tight select-all w-full truncate font-sans">
             {display}
           </div>
           
           {/* History Icon Toggle */}
           <button 
             onClick={() => setShowHistory(!showHistory)}
-            className="absolute top-0 left-0 text-zinc-600 hover:text-zinc-300 transition-colors cursor-pointer p-1"
+            className="absolute top-3 left-3 text-neutral-600 hover:text-neutral-300 transition-colors p-1 cursor-pointer"
           >
             <History className="w-4 h-4" />
           </button>
@@ -218,22 +215,22 @@ export default function Calculator({ onUnlock, masterPinHash, decoyPinHash, onFo
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="bg-[#111114] border border-white/5 rounded-2xl p-4 max-h-48 overflow-y-auto flex flex-col gap-2 font-mono text-xs text-zinc-400 mb-6"
+            className="bg-neutral-950 border border-neutral-800 rounded-2xl p-4 max-h-48 overflow-y-auto flex flex-col gap-2 font-mono text-xs text-neutral-400"
           >
-            <div className="flex justify-between items-center border-b border-white/5 pb-2 mb-1">
-              <span className="font-semibold text-[10px] uppercase tracking-wider text-zinc-500">Calculation History</span>
+            <div className="flex justify-between items-center border-b border-neutral-800 pb-2 mb-1">
+              <span className="font-semibold text-[10px] uppercase tracking-wider text-neutral-500">Calculation History</span>
               <button 
                 onClick={() => setHistory([])}
-                className="text-zinc-500 hover:text-orange-400 flex items-center gap-1 cursor-pointer"
+                className="text-neutral-500 hover:text-rose-400 flex items-center gap-1 cursor-pointer"
               >
                 <RotateCcw className="w-3 h-3" /> Clear
               </button>
             </div>
             {history.length === 0 ? (
-              <div className="text-center py-4 text-zinc-600">No calculations recorded</div>
+              <div className="text-center py-4 text-neutral-600">No calculations recorded</div>
             ) : (
               history.map((h, i) => (
-                <div key={i} className="py-1 border-b border-white/5 last:border-0 hover:text-zinc-200 transition-colors">
+                <div key={i} className="py-1 border-b border-neutral-900/40 last:border-0 hover:text-neutral-200 transition-colors">
                   {h}
                 </div>
               ))
@@ -246,25 +243,25 @@ export default function Calculator({ onUnlock, masterPinHash, decoyPinHash, onFo
           {/* Row 1 */}
           <button 
             onClick={handleClear}
-            className="h-14 rounded-2xl bg-zinc-800/40 text-orange-400 font-medium text-lg hover:bg-zinc-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800 text-neutral-200 font-medium text-lg hover:bg-neutral-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             C
           </button>
           <button 
             onClick={handleToggleSign}
-            className="h-14 rounded-2xl bg-zinc-800/40 text-orange-400 font-medium text-lg hover:bg-zinc-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800 text-neutral-200 font-medium text-lg hover:bg-neutral-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             ±
           </button>
           <button 
             onClick={handlePercentage}
-            className="h-14 rounded-2xl bg-zinc-800/40 text-orange-400 font-medium text-lg hover:bg-zinc-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800 text-neutral-200 font-medium text-lg hover:bg-neutral-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             %
           </button>
           <button 
             onClick={() => handleOperator('÷')}
-            className="h-14 rounded-2xl bg-orange-500/10 text-orange-500 font-semibold text-xl hover:bg-orange-500/20 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-amber-500 text-white font-semibold text-xl hover:bg-amber-400 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             ÷
           </button>
@@ -272,25 +269,25 @@ export default function Calculator({ onUnlock, masterPinHash, decoyPinHash, onFo
           {/* Row 2 */}
           <button 
             onClick={() => handleNumber('7')}
-            className="h-14 rounded-2xl bg-zinc-800/80 text-white font-medium text-xl hover:bg-zinc-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800/40 border border-neutral-800 text-white font-medium text-xl hover:bg-neutral-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             7
           </button>
           <button 
             onClick={() => handleNumber('8')}
-            className="h-14 rounded-2xl bg-zinc-800/80 text-white font-medium text-xl hover:bg-zinc-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800/40 border border-neutral-800 text-white font-medium text-xl hover:bg-neutral-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             8
           </button>
           <button 
             onClick={() => handleNumber('9')}
-            className="h-14 rounded-2xl bg-zinc-800/80 text-white font-medium text-xl hover:bg-zinc-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800/40 border border-neutral-800 text-white font-medium text-xl hover:bg-neutral-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             9
           </button>
           <button 
             onClick={() => handleOperator('×')}
-            className="h-14 rounded-2xl bg-orange-500/10 text-orange-500 font-semibold text-xl hover:bg-orange-500/20 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-amber-500 text-white font-semibold text-xl hover:bg-amber-400 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             ×
           </button>
@@ -298,25 +295,25 @@ export default function Calculator({ onUnlock, masterPinHash, decoyPinHash, onFo
           {/* Row 3 */}
           <button 
             onClick={() => handleNumber('4')}
-            className="h-14 rounded-2xl bg-zinc-800/80 text-white font-medium text-xl hover:bg-zinc-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800/40 border border-neutral-800 text-white font-medium text-xl hover:bg-neutral-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             4
           </button>
           <button 
             onClick={() => handleNumber('5')}
-            className="h-14 rounded-2xl bg-zinc-800/80 text-white font-medium text-xl hover:bg-zinc-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800/40 border border-neutral-800 text-white font-medium text-xl hover:bg-neutral-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             5
           </button>
           <button 
             onClick={() => handleNumber('6')}
-            className="h-14 rounded-2xl bg-zinc-800/80 text-white font-medium text-xl hover:bg-zinc-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800/40 border border-neutral-800 text-white font-medium text-xl hover:bg-neutral-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             6
           </button>
           <button 
             onClick={() => handleOperator('-')}
-            className="h-14 rounded-2xl bg-orange-500/10 text-orange-500 font-semibold text-xl hover:bg-orange-500/20 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-amber-500 text-white font-semibold text-xl hover:bg-amber-400 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             −
           </button>
@@ -324,25 +321,25 @@ export default function Calculator({ onUnlock, masterPinHash, decoyPinHash, onFo
           {/* Row 4 */}
           <button 
             onClick={() => handleNumber('1')}
-            className="h-14 rounded-2xl bg-zinc-800/80 text-white font-medium text-xl hover:bg-zinc-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800/40 border border-neutral-800 text-white font-medium text-xl hover:bg-neutral-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             1
           </button>
           <button 
             onClick={() => handleNumber('2')}
-            className="h-14 rounded-2xl bg-zinc-800/80 text-white font-medium text-xl hover:bg-zinc-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800/40 border border-neutral-800 text-white font-medium text-xl hover:bg-neutral-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             2
           </button>
           <button 
             onClick={() => handleNumber('3')}
-            className="h-14 rounded-2xl bg-zinc-800/80 text-white font-medium text-xl hover:bg-zinc-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800/40 border border-neutral-800 text-white font-medium text-xl hover:bg-neutral-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             3
           </button>
           <button 
             onClick={() => handleOperator('+')}
-            className="h-14 rounded-2xl bg-orange-500/10 text-orange-500 font-semibold text-xl hover:bg-orange-500/20 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-amber-500 text-white font-semibold text-xl hover:bg-amber-400 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             +
           </button>
@@ -350,30 +347,27 @@ export default function Calculator({ onUnlock, masterPinHash, decoyPinHash, onFo
           {/* Row 5 */}
           <button 
             onClick={() => handleNumber('0')}
-            className="col-span-2 h-14 rounded-2xl bg-zinc-800/80 text-white font-medium text-xl hover:bg-zinc-700 active:scale-95 px-6 transition-all cursor-pointer flex items-center justify-start"
+            className="col-span-2 h-14 rounded-full bg-neutral-800/40 border border-neutral-800 text-white font-medium text-xl hover:bg-neutral-800 active:scale-95 px-6 transition-all cursor-pointer flex items-center justify-start"
           >
             0
           </button>
           <button 
             onClick={handleDecimal}
-            className="h-14 rounded-2xl bg-zinc-800/80 text-white font-medium text-xl hover:bg-zinc-700 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-neutral-800/40 border border-neutral-800 text-white font-medium text-xl hover:bg-neutral-800 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             .
           </button>
           <button 
             onClick={handleEvaluate}
-            className="h-14 rounded-2xl bg-orange-500 text-white font-semibold text-2xl hover:bg-orange-600 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+            className="h-14 rounded-full bg-emerald-600 text-white font-semibold text-2xl hover:bg-emerald-500 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
           >
             =
           </button>
         </div>
         
-        {/* Stealth protocol info block */}
-        <div className="mt-6 p-4 bg-black/20 rounded-xl border border-white/5">
-          <div className="flex items-center justify-between text-[10px] uppercase tracking-widest text-zinc-500">
-            <span>Encryption Protocol</span>
-            <span className="text-green-500 font-semibold">AES-256 Enabled</span>
-          </div>
+        {/* Anti-slop / Clean Footnote */}
+        <div className="text-center text-[9px] text-neutral-700 tracking-wider">
+          SOLAR POWERED DUAL DIODE SYSTEM
         </div>
       </div>
     </div>

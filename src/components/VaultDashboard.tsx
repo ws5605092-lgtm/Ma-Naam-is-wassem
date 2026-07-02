@@ -469,19 +469,19 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
   };
 
   return (
-    <div className="flex h-screen bg-[#09090b] text-zinc-100 font-sans overflow-hidden select-none">
+    <div className="flex h-screen bg-slate-950 text-slate-100 font-sans overflow-hidden">
       
       {/* 1. SECURE COMPACT SIDEBAR */}
-      <aside className="w-64 bg-[#111114] border-r border-white/5 flex flex-col justify-between z-10">
+      <aside className="w-64 bg-slate-900 border-r border-slate-800 flex flex-col justify-between z-10">
         <div>
           {/* Logo Brand Panel */}
-          <div className="p-6 border-b border-white/5 flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/20 text-white font-bold text-lg">
-              +
+          <div className="p-6 border-b border-slate-800/60 flex items-center space-x-3">
+            <div className={`p-2 rounded-lg ${isMaster ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'}`}>
+              <Lock className="w-5 h-5" />
             </div>
             <div>
-              <h1 className="text-sm font-semibold tracking-tight text-white uppercase">Secured Vault</h1>
-              <p className="text-[10px] text-zinc-500 font-mono tracking-wider">
+              <h1 className="text-sm font-bold tracking-tight text-white uppercase">Secured Vault</h1>
+              <p className="text-[10px] text-slate-500 font-mono tracking-wider">
                 {isMaster ? 'MASTER MODE' : 'DECOY INTERFACE'}
               </p>
             </div>
@@ -493,13 +493,13 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
               onClick={() => setActiveTab('gallery')}
               className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all cursor-pointer ${
                 activeTab === 'gallery' 
-                  ? 'bg-white/5 text-white border border-white/5' 
-                  : 'text-zinc-500 hover:text-white hover:bg-white/[0.03]'
+                  ? 'bg-slate-800 text-white border border-slate-700/50' 
+                  : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/40'
               }`}
             >
-              <ImageIcon className="w-4 h-4 text-orange-500" />
+              <ImageIcon className="w-4 h-4 text-emerald-400" />
               <span>Media Library</span>
-              <span className="ml-auto text-xs font-mono text-zinc-400 bg-black/20 px-1.5 py-0.5 rounded border border-white/5">
+              <span className="ml-auto text-xs font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">
                 {files.length}
               </span>
             </button>
@@ -508,13 +508,13 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
               onClick={() => setActiveTab('folders')}
               className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all cursor-pointer ${
                 activeTab === 'folders' 
-                  ? 'bg-white/5 text-white border border-white/5' 
-                  : 'text-zinc-500 hover:text-white hover:bg-white/[0.03]'
+                  ? 'bg-slate-800 text-white border border-slate-700/50' 
+                  : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/40'
               }`}
             >
-              <Folder className="w-4 h-4 text-orange-400" />
+              <Folder className="w-4 h-4 text-sky-400" />
               <span>Folders</span>
-              <span className="ml-auto text-xs font-mono text-zinc-400 bg-black/20 px-1.5 py-0.5 rounded border border-white/5">
+              <span className="ml-auto text-xs font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">
                 {folders.length}
               </span>
             </button>
@@ -523,11 +523,11 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
               onClick={() => setActiveTab('logs')}
               className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all cursor-pointer ${
                 activeTab === 'logs' 
-                  ? 'bg-white/5 text-white border border-white/5' 
-                  : 'text-zinc-500 hover:text-white hover:bg-white/[0.03]'
+                  ? 'bg-slate-800 text-white border border-slate-700/50' 
+                  : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/40'
               }`}
             >
-              <FileText className="w-4 h-4 text-orange-400" />
+              <FileText className="w-4 h-4 text-purple-400" />
               <span>Security Logs</span>
             </button>
 
@@ -535,24 +535,24 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
               onClick={() => setActiveTab('settings')}
               className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all cursor-pointer ${
                 activeTab === 'settings' 
-                  ? 'bg-white/5 text-white border border-white/5' 
-                  : 'text-zinc-500 hover:text-white hover:bg-white/[0.03]'
+                  ? 'bg-slate-800 text-white border border-slate-700/50' 
+                  : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/40'
               }`}
             >
-              <SettingsIcon className="w-4 h-4 text-zinc-500" />
+              <SettingsIcon className="w-4 h-4 text-slate-400" />
               <span>Vault Settings</span>
             </button>
           </nav>
         </div>
 
         {/* Bottom Utility controls */}
-        <div className="p-4 border-t border-white/5 space-y-3">
+        <div className="p-4 border-t border-slate-800/60 space-y-3">
           {/* Quick Stats */}
-          <div className="bg-black/20 border border-white/5 rounded-xl p-3 flex items-center gap-3">
-            <HardDrive className="w-4 h-4 text-zinc-500 flex-shrink-0" />
+          <div className="bg-slate-950 border border-slate-800 rounded-xl p-3 flex items-center gap-3">
+            <HardDrive className="w-4 h-4 text-slate-500 flex-shrink-0" />
             <div className="overflow-hidden">
-              <div className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider">Vault Storage</div>
-              <div className="text-xs font-semibold text-zinc-300 truncate">{formatBytes(totalBytesUsed)}</div>
+              <div className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Vault Storage</div>
+              <div className="text-xs font-semibold text-slate-300 truncate">{formatBytes(totalBytesUsed)}</div>
             </div>
           </div>
 
@@ -567,17 +567,17 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
       </aside>
 
       {/* 2. PRIMARY CONTENT HUB */}
-      <main className="flex-1 flex flex-col overflow-hidden bg-[#09090b]">
+      <main className="flex-1 flex flex-col overflow-hidden bg-slate-950">
         
         {/* Top Header Controls bar */}
-        <header className="h-16 border-b border-white/5 flex items-center justify-between px-8 bg-[#111114]/40 backdrop-blur-sm z-10">
+        <header className="h-16 border-b border-slate-800 flex items-center justify-between px-8 bg-slate-900/40 backdrop-blur-sm z-10">
           <div className="flex items-center space-x-4">
             <h2 className="text-lg font-bold text-white capitalize">
               {activeTab === 'gallery' ? 'Encrypted Media Library' : 
                activeTab === 'folders' ? 'Directories & Organization' : 
                activeTab === 'logs' ? 'Secured System Log' : 'Vault Parameters'}
             </h2>
-            <div className="flex items-center gap-1.5 bg-black/20 border border-white/5 px-2.5 py-1 rounded-full text-[10px] font-mono font-medium text-orange-500 shadow-inner">
+            <div className="flex items-center gap-1.5 bg-slate-950 border border-slate-800 px-2.5 py-1 rounded-full text-[10px] font-mono font-medium text-emerald-400 shadow-inner">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>AES-GCM 256-BIT</span>
             </div>
@@ -588,14 +588,14 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
             <div className="flex gap-2">
               <button
                 onClick={() => setShowFolderModal(true)}
-                className="flex items-center gap-1.5 bg-[#18181b] border border-white/5 hover:bg-zinc-800 text-zinc-300 text-xs font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer"
+                className="flex items-center gap-1.5 bg-slate-900 border border-slate-800 hover:bg-slate-800 text-slate-300 text-xs font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer"
               >
-                <FolderPlus className="w-4 h-4 text-orange-400" />
+                <FolderPlus className="w-4 h-4 text-sky-400" />
                 <span>New Folder</span>
               </button>
               <button
                 onClick={triggerFileSelect}
-                className="flex items-center gap-1.5 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white text-xs font-semibold px-4 py-2 rounded-xl shadow-lg shadow-orange-500/10 cursor-pointer transition-all active:scale-[0.98]"
+                className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white text-xs font-semibold px-4 py-2 rounded-xl shadow-lg shadow-emerald-500/10 cursor-pointer transition-all active:scale-[0.98]"
               >
                 <Plus className="w-4 h-4" />
                 <span>Secure Files</span>
@@ -620,15 +620,15 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="absolute top-4 right-4 bg-[#18181b] border border-white/5 rounded-2xl p-4 shadow-2xl z-20 flex flex-col gap-3 min-w-[280px]"
+              className="absolute top-4 right-4 bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-2xl z-20 flex flex-col gap-3 min-w-[280px]"
             >
               <div className="flex justify-between items-center text-xs">
-                <span className="font-semibold text-orange-500 animate-pulse">Encrypting & Storing...</span>
-                <span className="font-mono text-zinc-400">{uploadProgress}%</span>
+                <span className="font-semibold text-emerald-400 animate-pulse">Encrypting & Storing...</span>
+                <span className="font-mono text-slate-400">{uploadProgress}%</span>
               </div>
-              <div className="w-full bg-black/40 rounded-full h-1.5 overflow-hidden">
+              <div className="w-full bg-slate-950 rounded-full h-1.5 overflow-hidden">
                 <div 
-                  className="bg-orange-500 h-full transition-all duration-300 rounded-full"
+                  className="bg-emerald-500 h-full transition-all duration-300 rounded-full"
                   style={{ width: `${uploadProgress}%` }}
                 />
               </div>
@@ -640,26 +640,26 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
             <div className="space-y-6">
               
               {/* Filter controls row */}
-              <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-[#18181b]/30 p-4 border border-white/5 rounded-2xl">
+              <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-slate-900/30 p-4 border border-slate-800/60 rounded-2xl">
                 
                 {/* Search / Text filter */}
                 <div className="relative w-full md:w-72">
-                  <Search className="absolute left-3.5 top-2.5 w-4 h-4 text-zinc-500" />
+                  <Search className="absolute left-3.5 top-2.5 w-4 h-4 text-slate-500" />
                   <input
                     type="text"
                     placeholder="Search secure items..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full bg-black/25 border border-white/5 rounded-xl pl-10 pr-4 py-2 text-xs focus:outline-none focus:border-orange-500 text-zinc-100 transition-colors"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2 text-xs focus:outline-none focus:border-emerald-500 text-slate-100 transition-colors"
                   />
                 </div>
 
                 {/* Left controls: Category selectors */}
-                <div className="flex items-center gap-1 bg-black/25 border border-white/5 p-1 rounded-xl w-full md:w-auto overflow-x-auto">
+                <div className="flex items-center gap-1 bg-slate-950 border border-slate-800 p-1 rounded-xl w-full md:w-auto overflow-x-auto">
                   <button
                     onClick={() => setTypeFilter('all')}
                     className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-all ${
-                      typeFilter === 'all' ? 'bg-white/5 text-white border border-white/5' : 'text-zinc-500 hover:text-white'
+                      typeFilter === 'all' ? 'bg-slate-800 text-white' : 'text-slate-400 hover:text-white'
                     }`}
                   >
                     All Media
@@ -667,7 +667,7 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                   <button
                     onClick={() => setTypeFilter('images')}
                     className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-all ${
-                      typeFilter === 'images' ? 'bg-white/5 text-white border border-white/5' : 'text-zinc-500 hover:text-white'
+                      typeFilter === 'images' ? 'bg-slate-800 text-white' : 'text-slate-400 hover:text-white'
                     }`}
                   >
                     Photos
@@ -675,7 +675,7 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                   <button
                     onClick={() => setTypeFilter('videos')}
                     className={`px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-all ${
-                      typeFilter === 'videos' ? 'bg-white/5 text-white border border-white/5' : 'text-zinc-500 hover:text-white'
+                      typeFilter === 'videos' ? 'bg-slate-800 text-white' : 'text-slate-400 hover:text-white'
                     }`}
                   >
                     Videos
@@ -684,32 +684,32 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
 
                 {/* Middle controls: Folder sorting */}
                 <div className="flex items-center gap-2 w-full md:w-auto justify-end">
-                  <div className="flex items-center gap-1 bg-black/25 border border-white/5 p-1 rounded-xl">
-                    <span className="text-[10px] uppercase font-bold text-zinc-500 px-2">Folder:</span>
+                  <div className="flex items-center gap-1 bg-slate-950 border border-slate-800 p-1 rounded-xl">
+                    <span className="text-[10px] uppercase font-bold text-slate-500 px-2">Folder:</span>
                     <select
                       value={selectedFolderId}
                       onChange={(e) => setSelectedFolderId(e.target.value)}
-                      className="bg-transparent text-xs text-zinc-300 focus:outline-none pr-4 font-medium"
+                      className="bg-transparent text-xs text-slate-300 focus:outline-none pr-4 font-medium"
                     >
-                      <option value="all" className="bg-[#18181b]">All</option>
-                      <option value="root" className="bg-[#18181b]">Uncategorized</option>
+                      <option value="all" className="bg-slate-900">All</option>
+                      <option value="root" className="bg-slate-900">Uncategorized</option>
                       {folders.map(f => (
-                        <option key={f.id} value={f.id} className="bg-[#18181b]">{f.name}</option>
+                        <option key={f.id} value={f.id} className="bg-slate-900">{f.name}</option>
                       ))}
                     </select>
                   </div>
 
-                  <div className="flex items-center gap-1 bg-black/25 border border-white/5 p-1 rounded-xl">
-                    <span className="text-[10px] uppercase font-bold text-zinc-500 px-2">Sort:</span>
+                  <div className="flex items-center gap-1 bg-slate-950 border border-slate-800 p-1 rounded-xl">
+                    <span className="text-[10px] uppercase font-bold text-slate-500 px-2">Sort:</span>
                     <select
                       value={sortBy}
                       onChange={(e) => setSortBy(e.target.value as any)}
-                      className="bg-transparent text-xs text-zinc-300 focus:outline-none pr-4 font-medium"
+                      className="bg-transparent text-xs text-slate-300 focus:outline-none pr-4 font-medium"
                     >
-                      <option value="newest" className="bg-[#18181b]">Newest</option>
-                      <option value="oldest" className="bg-[#18181b]">Oldest</option>
-                      <option value="size-desc" className="bg-[#18181b]">Size (Largest)</option>
-                      <option value="size-asc" className="bg-[#18181b]">Size (Smallest)</option>
+                      <option value="newest" className="bg-slate-900">Newest</option>
+                      <option value="oldest" className="bg-slate-900">Oldest</option>
+                      <option value="size-desc" className="bg-slate-900">Size (Largest)</option>
+                      <option value="size-asc" className="bg-slate-900">Size (Smallest)</option>
                     </select>
                   </div>
                 </div>
@@ -721,15 +721,15 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                 <div
                   onDragOver={handleDragOver}
                   onDrop={handleDrop}
-                  className="border border-dashed border-white/10 hover:border-orange-500/50 bg-[#18181b]/10 hover:bg-orange-500/[0.01] rounded-3xl p-16 text-center transition-all cursor-pointer flex flex-col items-center gap-4"
+                  className="border-2 border-dashed border-slate-800 hover:border-emerald-500/50 bg-slate-900/10 hover:bg-emerald-500/[0.01] rounded-3xl p-16 text-center transition-all cursor-pointer flex flex-col items-center gap-4"
                   onClick={triggerFileSelect}
                 >
-                  <div className="p-4 bg-orange-500/5 border border-orange-500/10 rounded-full text-orange-400">
+                  <div className="p-4 bg-emerald-500/5 border border-emerald-500/10 rounded-full text-emerald-400">
                     <Unlock className="w-8 h-8" />
                   </div>
                   <div>
                     <h3 className="text-md font-bold text-white mb-1">Your vault is completely empty</h3>
-                    <p className="text-xs text-zinc-400 max-w-sm mx-auto leading-relaxed">
+                    <p className="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed">
                       Drag and drop files here, or click to browse. Files will be converted to cryptographic buffers and secured completely in your browser sandboxed database.
                     </p>
                   </div>
@@ -758,11 +758,11 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                             key={file.id}
                             layout
                             whileHover={{ y: -4 }}
-                            className="group relative bg-[#18181b] border border-white/5 rounded-2xl overflow-hidden aspect-square flex flex-col cursor-pointer shadow-lg"
+                            className="group relative bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden aspect-square flex flex-col cursor-pointer shadow-lg"
                             onClick={() => setViewerIndex(idx)}
                           >
                             {/* Rendering dynamic media decrypted image */}
-                            <div className="flex-1 w-full bg-black/40 flex items-center justify-center relative overflow-hidden">
+                            <div className="flex-1 w-full bg-slate-950 flex items-center justify-center relative overflow-hidden">
                               {url ? (
                                 isImage ? (
                                   <img 
@@ -775,7 +775,7 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                                   <div className="relative w-full h-full">
                                     <video src={url} className="w-full h-full object-cover" />
                                     <div className="absolute inset-0 bg-black/45 flex items-center justify-center">
-                                      <div className="p-2.5 bg-orange-500/90 rounded-full text-white shadow-lg">
+                                      <div className="p-2.5 bg-emerald-500/90 rounded-full text-white shadow-lg">
                                         <VideoIcon className="w-5 h-5 fill-white" />
                                       </div>
                                     </div>
@@ -783,25 +783,25 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                                 )
                               ) : (
                                 <div className="animate-pulse flex flex-col items-center justify-center gap-2">
-                                  <div className="p-2 bg-[#18181b] border border-white/5 rounded-lg text-zinc-600">
+                                  <div className="p-2 bg-slate-900 border border-slate-800 rounded-lg text-slate-600">
                                     {isImage ? <ImageIcon className="w-5 h-5" /> : <VideoIcon className="w-5 h-5" />}
                                   </div>
-                                  <span className="text-[9px] text-zinc-500 tracking-wider uppercase">Decrypting...</span>
+                                  <span className="text-[9px] text-slate-500 tracking-wider uppercase">Decrypting...</span>
                                 </div>
                               )}
 
                               {/* Corner Media Indicator Badge */}
-                              <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-black/75 backdrop-blur-sm border border-white/5 text-[9px] font-mono rounded text-zinc-400 group-hover:text-orange-400 group-hover:border-orange-500/30 transition-colors">
+                              <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-slate-900/85 backdrop-blur-sm border border-slate-800 text-[9px] font-mono rounded text-slate-400 group-hover:text-emerald-400 group-hover:border-emerald-500/30 transition-colors">
                                 {isImage ? 'IMG' : 'VID'}
                               </div>
                             </div>
 
                             {/* Label Footer */}
-                            <div className="p-3 bg-[#111114]/80 border-t border-white/5 flex flex-col gap-0.5">
+                            <div className="p-3 bg-slate-900/80 border-t border-slate-800/60 flex flex-col gap-0.5">
                               <span className="text-xs font-medium text-slate-200 truncate w-full group-hover:text-white transition-colors">
                                 {file.name}
                               </span>
-                              <span className="text-[10px] font-mono text-zinc-500">
+                              <span className="text-[10px] font-mono text-slate-500">
                                 {(file.size / 1024).toFixed(0)} KB
                               </span>
                             </div>
@@ -820,14 +820,14 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
           {activeTab === 'folders' && (
             <div className="space-y-6">
               
-              <div className="flex justify-between items-center bg-[#18181b]/20 p-4 border border-white/5 rounded-2xl">
+              <div className="flex justify-between items-center bg-slate-900/20 p-4 border border-slate-800 rounded-2xl">
                 <div>
                   <h3 className="text-sm font-semibold text-white">Create folders to organize hidden media</h3>
-                  <p className="text-xs text-zinc-400 mt-1">Files in folders remain AES-encrypted. Deleting a folder moves its items to the main library.</p>
+                  <p className="text-xs text-slate-400 mt-1">Files in folders remain AES-encrypted. Deleting a folder moves its items to the main library.</p>
                 </div>
                 <button
                   onClick={() => setShowFolderModal(true)}
-                  className="flex items-center gap-1.5 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white text-xs font-semibold px-4 py-2 rounded-xl cursor-pointer"
+                  className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white text-xs font-semibold px-4 py-2 rounded-xl cursor-pointer"
                 >
                   <FolderPlus className="w-4 h-4" />
                   <span>Create Folder</span>
@@ -835,7 +835,7 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
               </div>
 
               {folders.length === 0 ? (
-                <div className="text-center py-16 text-zinc-600 text-sm">
+                <div className="text-center py-16 text-slate-600 text-sm">
                   You haven't created any custom directories yet. Use the button above to categorize your items.
                 </div>
               ) : (
@@ -847,15 +847,15 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                       setSelectedFolderId('root');
                       setActiveTab('gallery');
                     }}
-                    className="p-5 bg-[#18181b]/50 border border-white/5 hover:border-white/10 rounded-2xl flex items-center justify-between cursor-pointer transition-all hover:-translate-y-0.5"
+                    className="p-5 bg-slate-900/50 border border-slate-800 hover:border-slate-700 rounded-2xl flex items-center justify-between cursor-pointer transition-all hover:-translate-y-0.5"
                   >
                     <div className="flex items-center space-x-3.5">
-                      <div className="p-3 bg-black/25 border border-white/5 rounded-xl text-zinc-400">
+                      <div className="p-3 bg-slate-950 border border-slate-800 rounded-xl text-slate-400">
                         <FolderOpen className="w-6 h-6" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-white text-sm">Uncategorized</h4>
-                        <p className="text-xs text-zinc-500 mt-0.5">
+                        <p className="text-xs text-slate-500 mt-0.5">
                           {files.filter(f => !f.folderId || f.folderId === 'root').length} items
                         </p>
                       </div>
@@ -867,26 +867,26 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                     return (
                       <div
                         key={folder.id}
-                        className="group relative p-5 bg-[#18181b]/50 border border-white/5 hover:border-white/10 rounded-2xl flex flex-col justify-between cursor-pointer transition-all hover:-translate-y-0.5"
+                        className="group relative p-5 bg-slate-900/50 border border-slate-800 hover:border-slate-700 rounded-2xl flex flex-col justify-between cursor-pointer transition-all hover:-translate-y-0.5"
                         onClick={() => {
                           setSelectedFolderId(folder.id);
                           setActiveTab('gallery');
                         }}
                       >
                         <div className="flex items-center space-x-3.5 mb-4">
-                          <div className="p-3 bg-black/25 border border-white/5 rounded-xl text-orange-400 group-hover:text-orange-500 transition-colors">
+                          <div className="p-3 bg-slate-950 border border-slate-800 rounded-xl text-sky-400 group-hover:text-emerald-400 transition-colors">
                             <Folder className="w-6 h-6" />
                           </div>
                           <div>
-                            <h4 className="font-semibold text-white text-sm group-hover:text-orange-500 transition-colors">{folder.name}</h4>
-                            <p className="text-xs text-zinc-500 mt-0.5">
+                            <h4 className="font-semibold text-white text-sm group-hover:text-emerald-400 transition-colors">{folder.name}</h4>
+                            <p className="text-xs text-slate-500 mt-0.5">
                               {count} items
                             </p>
                           </div>
                         </div>
 
                         {/* Delete button (stop propagation so it doesn't open folder) */}
-                        <div className="flex justify-end pt-2 border-t border-white/5">
+                        <div className="flex justify-end pt-2 border-t border-slate-850">
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
@@ -911,24 +911,24 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
           {activeTab === 'logs' && (
             <div className="space-y-6">
               
-              <div className="flex justify-between items-center bg-[#18181b]/30 p-4 border border-white/5 rounded-2xl">
+              <div className="flex justify-between items-center bg-slate-900/30 p-4 border border-slate-800 rounded-2xl">
                 <div>
                   <h3 className="text-sm font-semibold text-white flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-orange-400" /> Intruder Detection & Activity Timeline
+                    <ShieldCheck className="w-4 h-4 text-purple-400" /> Intruder Detection & Activity Timeline
                   </h3>
-                  <p className="text-xs text-zinc-400 mt-1">This log tracks lock access attempts. Events are kept purely local in your browser and are never uploaded.</p>
+                  <p className="text-xs text-slate-400 mt-1">This log tracks lock access attempts. Events are kept purely local in your browser and are never uploaded.</p>
                 </div>
               </div>
 
-              <div className="bg-[#111114]/40 border border-white/5 rounded-2xl overflow-hidden shadow-xl">
+              <div className="bg-slate-900/40 border border-slate-800/60 rounded-2xl overflow-hidden shadow-xl">
                 {logs.length === 0 ? (
-                  <div className="text-center py-16 text-zinc-600 text-sm">No security logs recorded yet.</div>
+                  <div className="text-center py-16 text-slate-600 text-sm">No security logs recorded yet.</div>
                 ) : (
-                  <div className="divide-y divide-white/5">
+                  <div className="divide-y divide-slate-850">
                     {logs.map(log => (
-                      <div key={log.id} className="p-4 flex items-start gap-4 hover:bg-[#18181b]/10 transition-colors">
+                      <div key={log.id} className="p-4 flex items-start gap-4 hover:bg-slate-900/20 transition-colors">
                         <div className={`p-2 rounded-lg mt-0.5 ${
-                          log.event === 'unlock_success' ? 'bg-orange-500/10 text-orange-400' :
+                          log.event === 'unlock_success' ? 'bg-emerald-500/10 text-emerald-400' :
                           log.event === 'decoy_unlock' ? 'bg-amber-500/10 text-amber-400' :
                           'bg-rose-500/10 text-rose-400'
                         }`}>
@@ -942,12 +942,12 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                                log.event === 'failed_attempt' ? 'Failed Unlock Attempt' : 
                                log.event === 'files_deleted' ? 'Secured Items Erased' : 'Security Log Entry'}
                             </span>
-                            <span className="text-[10px] font-mono text-zinc-500 flex items-center gap-1">
+                            <span className="text-[10px] font-mono text-slate-500 flex items-center gap-1">
                               <Calendar className="w-3 h-3" />
                               {new Date(log.timestamp).toLocaleString()}
                             </span>
                           </div>
-                          <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
+                          <p className="text-xs text-slate-400 mt-1 leading-relaxed">
                             {log.details}
                           </p>
                         </div>
@@ -965,8 +965,8 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
             <div className="space-y-6 max-w-2xl">
               
               {settingsSuccess && (
-                <div className="p-4 bg-orange-500/15 border border-orange-500/20 text-orange-300 rounded-xl text-xs flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-orange-400" />
+                <div className="p-4 bg-emerald-500/15 border border-emerald-500/20 text-emerald-300 rounded-xl text-xs flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   <span>{settingsSuccess}</span>
                 </div>
               )}
@@ -979,11 +979,11 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
               )}
 
               {/* Box 1: Change Master PIN */}
-              <div className="bg-[#111114] border border-white/5 rounded-2xl p-6 space-y-4">
+              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
                 <h3 className="text-sm font-bold text-white flex items-center gap-1.5">
-                  <Lock className="w-4 h-4 text-orange-400" /> Change Master Vault PIN
+                  <Lock className="w-4 h-4 text-emerald-400" /> Change Master Vault PIN
                 </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed">
+                <p className="text-xs text-slate-400 leading-relaxed">
                   Provide your current PIN to authenticate, then set your new master vault access passcode.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -997,7 +997,7 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                       setSettingsError('');
                       setSettingsSuccess('');
                     }}
-                    className="bg-black/25 border border-white/5 rounded-xl px-4 py-2.5 text-xs text-center font-mono focus:outline-none focus:border-orange-500 text-zinc-100"
+                    className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-center font-mono focus:outline-none focus:border-emerald-500"
                   />
                   <input
                     type="password"
@@ -1009,7 +1009,7 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                       setSettingsError('');
                       setSettingsSuccess('');
                     }}
-                    className="bg-black/25 border border-white/5 rounded-xl px-4 py-2.5 text-xs text-center font-mono focus:outline-none focus:border-orange-500 text-zinc-100"
+                    className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-center font-mono focus:outline-none focus:border-emerald-500"
                   />
                   <input
                     type="password"
@@ -1021,23 +1021,23 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                       setSettingsError('');
                       setSettingsSuccess('');
                     }}
-                    className="bg-black/25 border border-white/5 rounded-xl px-4 py-2.5 text-xs text-center font-mono focus:outline-none focus:border-orange-500 text-zinc-100"
+                    className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-center font-mono focus:outline-none focus:border-emerald-500"
                   />
                 </div>
                 <button
                   onClick={handleUpdatePin}
-                  className="bg-white/5 hover:bg-zinc-800 text-zinc-200 hover:text-white border border-white/5 text-xs font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer"
+                  className="bg-slate-850 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700/50 text-xs font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer"
                 >
                   Update Master PIN
                 </button>
               </div>
 
               {/* Box 2: Change Decoy PIN */}
-              <div className="bg-[#111114] border border-white/5 rounded-2xl p-6 space-y-4">
+              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
                 <h3 className="text-sm font-bold text-white flex items-center gap-1.5">
-                  <AlertTriangle className="w-4 h-4 text-orange-500" /> Configure Decoy Trap PIN
+                  <AlertTriangle className="w-4 h-4 text-amber-500" /> Configure Decoy Trap PIN
                 </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed">
+                <p className="text-xs text-slate-400 leading-relaxed">
                   Type a separate trap PIN below. Entering this PIN on the calculator display will open a completely clean decoy dashboard structure, shielding your real encrypted content from observers.
                 </p>
                 <div className="flex gap-3">
@@ -1051,11 +1051,11 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                       setSettingsError('');
                       setSettingsSuccess('');
                     }}
-                    className="bg-black/25 border border-white/5 rounded-xl px-4 py-2.5 text-xs text-center font-mono focus:outline-none focus:border-orange-500 text-zinc-100 max-w-xs"
+                    className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-center font-mono focus:outline-none focus:border-amber-500 max-w-xs"
                   />
                   <button
                     onClick={handleUpdateDecoyPin}
-                    className="bg-white/5 hover:bg-zinc-800 text-zinc-200 hover:text-white border border-white/5 text-xs font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer"
+                    className="bg-slate-850 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700/50 text-xs font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer"
                   >
                     Save Decoy Configuration
                   </button>
@@ -1063,12 +1063,12 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
               </div>
 
               {/* Box 3: Update Security Recovery */}
-              <div className="bg-[#111114] border border-white/5 rounded-2xl p-6 space-y-4">
+              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
                 <h3 className="text-sm font-bold text-white flex items-center gap-1.5">
-                  <HelpCircle className="w-4 h-4 text-orange-400" /> Update Security Answer
+                  <HelpCircle className="w-4 h-4 text-sky-400" /> Update Security Answer
                 </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  Question: <strong className="text-zinc-200">{vaultSettings.securityQuestion}</strong>. Change your security answer hash in case you are concerned about security.
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Question: <strong className="text-slate-200">{vaultSettings.securityQuestion}</strong>. Change your security answer hash in case you are concerned about security.
                 </p>
                 <div className="flex gap-3">
                   <input
@@ -1080,11 +1080,11 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                       setSettingsError('');
                       setSettingsSuccess('');
                     }}
-                    className="bg-black/25 border border-white/5 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-orange-500 text-zinc-100 max-w-xs"
+                    className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-sky-500 max-w-xs"
                   />
                   <button
                     onClick={handleUpdateSecurityQuestion}
-                    className="bg-white/5 hover:bg-zinc-800 text-zinc-200 hover:text-white border border-white/5 text-xs font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer"
+                    className="bg-slate-850 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700/50 text-xs font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer"
                   >
                     Save Security Answer
                   </button>
@@ -1092,7 +1092,7 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
               </div>
 
               {/* Box 4: Factory Wipe */}
-              <div className="bg-rose-950/5 border border-rose-500/10 rounded-2xl p-6 space-y-4">
+              <div className="bg-rose-950/10 border border-rose-900/40 rounded-2xl p-6 space-y-4">
                 <h3 className="text-sm font-bold text-rose-300 flex items-center gap-1.5">
                   <Trash2 className="w-4 h-4 text-rose-400" /> Permanent Database Factory Wipe
                 </h3>
@@ -1121,19 +1121,19 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="w-full max-w-sm bg-[#111114] border border-white/5 rounded-2xl p-6 shadow-2xl relative"
+              className="w-full max-w-sm bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl relative"
             >
               <button
                 onClick={() => setShowFolderModal(false)}
-                className="absolute top-4 right-4 text-zinc-500 hover:text-white transition-colors cursor-pointer"
+                className="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <h3 className="text-md font-bold text-white mb-2 flex items-center gap-1.5">
-                <FolderPlus className="w-5 h-5 text-orange-400" /> Create Directory
+                <FolderPlus className="w-5 h-5 text-emerald-400" /> Create Directory
               </h3>
-              <p className="text-xs text-zinc-400 mb-4 leading-relaxed">
+              <p className="text-xs text-slate-400 mb-4 leading-relaxed">
                 Add a new private category folder. You can drag or move encrypted files inside to organize your vault.
               </p>
 
@@ -1142,7 +1142,7 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                 placeholder="Enter folder name (e.g. Trips)"
                 value={newFolderName}
                 onChange={(e) => setNewFolderName(e.target.value)}
-                className="w-full bg-black/25 border border-white/5 rounded-xl px-4 py-2.5 text-xs text-zinc-200 focus:outline-none focus:border-orange-500 mb-4"
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-emerald-500 mb-4"
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') handleCreateFolder();
                 }}
@@ -1151,13 +1151,13 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
               <div className="flex gap-2">
                 <button
                   onClick={() => setShowFolderModal(false)}
-                  className="w-1/3 bg-black/20 hover:bg-zinc-800 border border-white/5 text-zinc-400 hover:text-white rounded-xl text-xs py-2.5 transition-colors cursor-pointer"
+                  className="w-1/3 bg-slate-950 hover:bg-slate-850 border border-slate-800 text-slate-400 hover:text-white rounded-xl text-xs py-2.5 transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleCreateFolder}
-                  className="flex-1 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold rounded-xl text-xs py-2.5 transition-all cursor-pointer"
+                  className="flex-1 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-semibold rounded-xl text-xs py-2.5 transition-all cursor-pointer"
                 >
                   Create Folder
                 </button>
@@ -1177,17 +1177,17 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
             const decryptedUrl = decryptedUrls[file.id];
 
             return (
-              <div className="fixed inset-0 bg-black/98 flex flex-col z-50 font-sans">
+              <div className="fixed inset-0 bg-slate-950/95 flex flex-col z-50 font-sans">
                 
                 {/* Lightbox Header Bar */}
-                <div className="h-16 bg-[#111114] border-b border-white/5 flex items-center justify-between px-6">
+                <div className="h-16 bg-slate-900 border-b border-slate-800/80 flex items-center justify-between px-6">
                   <div className="min-w-0 flex items-center space-x-3">
-                    <div className="p-2 bg-black/25 border border-white/5 rounded-lg text-zinc-400">
+                    <div className="p-2 bg-slate-950 border border-slate-800 rounded-lg text-slate-400">
                       {isImage ? <ImageIcon className="w-5 h-5" /> : <VideoIcon className="w-5 h-5" />}
                     </div>
                     <div className="min-w-0">
                       <h3 className="text-sm font-semibold text-white truncate max-w-md">{file.name}</h3>
-                      <p className="text-[10px] font-mono text-zinc-500 mt-0.5">
+                      <p className="text-[10px] font-mono text-slate-500 mt-0.5">
                         {formatBytes(file.size)} • {file.type} • Secured {new Date(file.addedAt).toLocaleDateString()}
                       </p>
                     </div>
@@ -1199,32 +1199,32 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                     <div className="relative">
                       <button
                         onClick={() => setMovingFileId(movingFileId === file.id ? null : file.id)}
-                        className="p-2.5 bg-black/25 hover:bg-zinc-800 border border-white/5 rounded-xl text-zinc-300 hover:text-white text-xs flex items-center gap-1 cursor-pointer transition-colors"
+                        className="p-2.5 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-xl text-slate-300 hover:text-white text-xs flex items-center gap-1 cursor-pointer transition-colors"
                         title="Move directory"
                       >
-                        <Move className="w-4 h-4 text-orange-400" />
+                        <Move className="w-4 h-4 text-sky-400" />
                         <span className="hidden md:inline">Move</span>
                       </button>
 
                       {/* Folder migration Dropdown drawer */}
                       {movingFileId === file.id && (
-                        <div className="absolute right-0 mt-2 bg-[#111114] border border-white/5 rounded-xl p-2 w-48 shadow-2xl flex flex-col gap-1 z-50">
-                          <span className="text-[9px] font-bold text-zinc-500 uppercase px-2 py-1 select-none">Move to:</span>
+                        <div className="absolute right-0 mt-2 bg-slate-900 border border-slate-800 rounded-xl p-2 w-48 shadow-2xl flex flex-col gap-1 z-50">
+                          <span className="text-[9px] font-bold text-slate-500 uppercase px-2 py-1 select-none">Move to:</span>
                           <button
                             onClick={() => handleMoveFile(file.id, 'root')}
-                            className="w-full text-left text-xs px-2 py-1.5 rounded-lg text-zinc-300 hover:text-white hover:bg-[#18181b] flex justify-between cursor-pointer"
+                            className="w-full text-left text-xs px-2 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 flex justify-between cursor-pointer"
                           >
                             <span>Uncategorized</span>
-                            {(!file.folderId || file.folderId === 'root') && <Check className="w-3.5 h-3.5 text-orange-400" />}
+                            {(!file.folderId || file.folderId === 'root') && <Check className="w-3.5 h-3.5 text-emerald-400" />}
                           </button>
                           {folders.map(f => (
                             <button
                               key={f.id}
                               onClick={() => handleMoveFile(file.id, f.id)}
-                              className="w-full text-left text-xs px-2 py-1.5 rounded-lg text-zinc-300 hover:text-white hover:bg-[#18181b] flex justify-between cursor-pointer"
+                              className="w-full text-left text-xs px-2 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 flex justify-between cursor-pointer"
                             >
                               <span className="truncate">{f.name}</span>
-                              {file.folderId === f.id && <Check className="w-3.5 h-3.5 text-orange-400" />}
+                              {file.folderId === f.id && <Check className="w-3.5 h-3.5 text-emerald-400" />}
                             </button>
                           ))}
                         </div>
@@ -1233,10 +1233,10 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
 
                     <button
                       onClick={() => handleDownloadFile(file)}
-                      className="p-2.5 bg-black/25 hover:bg-zinc-800 border border-white/5 rounded-xl text-zinc-300 hover:text-white text-xs flex items-center gap-1 cursor-pointer transition-all"
+                      className="p-2.5 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-xl text-slate-300 hover:text-white text-xs flex items-center gap-1 cursor-pointer transition-all"
                       title="Decrypt & Export"
                     >
-                      <Download className="w-4 h-4 text-orange-400" />
+                      <Download className="w-4 h-4 text-emerald-400" />
                       <span className="hidden md:inline">Decrypt</span>
                     </button>
 
@@ -1254,7 +1254,7 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                         setViewerIndex(null);
                         setMovingFileId(null);
                       }}
-                      className="p-2.5 bg-black/25 hover:bg-zinc-800 border border-white/5 rounded-xl text-zinc-400 hover:text-white cursor-pointer transition-colors"
+                      className="p-2.5 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-xl text-slate-400 hover:text-white cursor-pointer transition-colors"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -1270,7 +1270,7 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                       if (viewerIndex > 0) setViewerIndex(viewerIndex - 1);
                     }}
                     disabled={viewerIndex === 0}
-                    className="p-4 bg-[#111114]/60 hover:bg-[#18181b]/80 border border-white/5 rounded-full text-white cursor-pointer disabled:opacity-30 disabled:pointer-events-none transition-all z-10"
+                    className="p-4 bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 rounded-full text-white cursor-pointer disabled:opacity-30 disabled:pointer-events-none transition-all z-10"
                   >
                     <ChevronLeft className="w-6 h-6" />
                   </button>
@@ -1297,13 +1297,13 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                           className="max-w-full max-h-full rounded-lg shadow-2xl bg-black"
                         />
                       ) : (
-                        <div className="text-center p-8 bg-[#111114] border border-white/5 rounded-2xl max-w-xs">
-                          <FileText className="w-12 h-12 text-zinc-500 mx-auto mb-3" />
+                        <div className="text-center p-8 bg-slate-900 border border-slate-800 rounded-2xl max-w-xs">
+                          <FileText className="w-12 h-12 text-slate-500 mx-auto mb-3" />
                           <h4 className="font-semibold text-white mb-2">Unsupported Type</h4>
-                          <p className="text-xs text-zinc-400 mb-4">This file type ({file.type}) cannot be previewed natively in the lightbox.</p>
+                          <p className="text-xs text-slate-400 mb-4">This file type ({file.type}) cannot be previewed natively in the lightbox.</p>
                           <button
                             onClick={() => handleDownloadFile(file)}
-                            className="bg-orange-600 hover:bg-orange-500 text-white text-xs font-semibold px-4 py-2 rounded-xl"
+                            className="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold px-4 py-2 rounded-xl"
                           >
                             Decrypt & Export to Disk
                           </button>
@@ -1311,10 +1311,10 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                       )
                     ) : (
                       <div className="text-center animate-pulse">
-                        <div className="p-4 bg-[#111114] rounded-2xl inline-block text-zinc-400 border border-white/5 mb-3">
-                          <Lock className="w-8 h-8 animate-pulse text-orange-400" />
+                        <div className="p-4 bg-slate-900 rounded-2xl inline-block text-slate-400 border border-slate-800 mb-3">
+                          <Lock className="w-8 h-8 animate-pulse text-emerald-400" />
                         </div>
-                        <p className="text-xs text-zinc-400 uppercase tracking-widest font-mono">Decrypting payload in-memory...</p>
+                        <p className="text-xs text-slate-400 uppercase tracking-widest font-mono">Decrypting payload in-memory...</p>
                       </div>
                     )}
                   </div>
@@ -1325,7 +1325,7 @@ export default function VaultDashboard({ cryptoKey, isMaster, onLock, vaultSetti
                       if (viewerIndex < filteredFiles.length - 1) setViewerIndex(viewerIndex + 1);
                     }}
                     disabled={viewerIndex === filteredFiles.length - 1}
-                    className="p-4 bg-[#111114]/60 hover:bg-[#18181b]/80 border border-white/5 rounded-full text-white cursor-pointer disabled:opacity-30 disabled:pointer-events-none transition-all z-10"
+                    className="p-4 bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 rounded-full text-white cursor-pointer disabled:opacity-30 disabled:pointer-events-none transition-all z-10"
                   >
                     <ChevronRight className="w-6 h-6" />
                   </button>
