@@ -1,0 +1,6 @@
+{
+  "name": "Calculator Photo Vault",
+  "description": "A fully functional calculator that doubles as a highly secure, private vault for hiding photos and videos. Features local IndexedDB storage, client-side AES encryption, custom folders, decoy PIN support, and full media playback.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
